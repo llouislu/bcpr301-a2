@@ -1,0 +1,86 @@
+@startuml
+interface MySourceReader {  
+go()
+}
+interface MyParser{
+parse()
+}
+interface GraphicsDrawer{
+select_pen()
+pen_down()
+pen_up()
+go_along()
+go_down()
+draw_line()
+draw_circle()
+draw_rectangle()
+draw_triangle()
+end()
+}
+interface TkinterDrawer{
+select_pen()
+pen_down()
+pen_up()
+go_along()
+go_down()
+draw_line()
+draw_circle()
+draw_rectangle()
+draw_triangle()
+end()
+}
+interface TurtleDrawer{
+select_pen()
+pen_down()
+pen_up()
+go_along()
+go_down()
+draw_line()
+draw_circle()
+draw_rectangle()
+draw_triangle()
+end()
+}
+interface TurtlePrompt{
+do_p()
+do_d()
+do_u()
+do_x()
+do_y()
+do_n()
+do_e()
+do_w()
+do_s()
+do_c()
+do_r()
+do_t()
+do_exit()
+default()
+go()
+}
+' interface ErrorChecking {
+' check()
+' notAInt()
+' notAString()
+' notAList()
+' notABool()
+' notAFloat()
+' notAFloatOrInt()
+' error_message()
+' }
+' interface Dest{
+' getDesination()
+' }
+
+
+MySourceReader --|> "1" MyParser
+MyParser --|> "1" GraphicsDrawer
+MyParser --|> "1" TkinterDrawer
+MyParser --|> "1" TurtleDrawer
+MyParser --|> "1" TurtlePrompt
+' ErrorChecking --|> "1" GraphicsDrawer
+' ErrorChecking --|> "1" TkinterDrawer
+' ErrorChecking --|> "1" TurtleDrawer
+' Dest "1" --|> "1" TkinterDrawer
+' Dest --|> "1" GraphicsDrawer
+@enduml
