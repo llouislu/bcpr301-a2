@@ -1,62 +1,67 @@
 @startuml
 interface MySourceReader {  
-+ go()
++ go() : void
 }
 interface MyParser{
-+ parse()
++ parse(list) : void
 }
 interface GraphicsDrawer{
-+ select_pen()
-+ pen_down()
-+ pen_up()
-+ go_along()
-+ go_down()
-+ draw_line()
-+ draw_circle()
-+ draw_rectangle()
-+ draw_triangle()
-+ end()
++ select_pen(str) : void
++ pen_down() : void
++ pen_up() : void
++ go_along(str) : void
++ go_down(str) : void
++ draw_line(int, int) : void
++ draw_circle(int) : void
++ draw_rectangle(int) : void
+' !!size is not used
++ draw_triangle(size) : void
++ end() : void
 }
 interface TkinterDrawer{
-select_pen()
-pen_down()
-pen_up()
-go_along()
-go_down()
-draw_line()
-draw_circle()
-draw_rectangle()
-draw_triangle()
-end()
++ select_pen(int) : void
++ pen_down() : void
++ pen_up() : void
++ go_along(float) : void
++ go_along(int) : void
++ go_down(float) : void
++ go_down(int) : void
++ draw_line(int, int) : void
++ draw_circle(int) : void
+' !!size is not used
++ draw_rectangle(int) : void
+' !!size is not used
++ draw_triangle(int) : void
++ end() : void
 }
 interface TurtleDrawer{
-+ select_pen()
-+ pen_down()
-+ pen_up()
-+ go_along()
-+ go_down()
-+ draw_line()
-+ draw_circle()
-+ draw_rectangle()
-+ draw_triangle()
-+ end()
++ select_pen() : void
++ pen_down() : void
++ pen_up() : void
++ go_along() : void
++ go_down() : void
++ draw_line() : void
++ draw_circle() : void
++ draw_rectangle() : void
++ draw_triangle() : void
++ end() : void
 }
 interface TurtlePrompt{
-+ do_p()
-+ do_d()
-+ do_u()
-+ do_x()
-+ do_y()
-+ do_n()
-+ do_e()
-+ do_w()
-+ do_s()
-+ do_c()
-+ do_r()
-+ do_t()
-+ do_exit()
-+ default()
-+ go()
+' + do_p(int) : void
+' + do_d() : void
+' + do_u() : void
+' + do_x() : void
+' + do_y() : void
+' + do_n() : void
+' + do_e() : void
+' + do_w() : void
+' + do_s() : void
+' + do_c() : void
+' + do_r() : void
+' + do_t() : void
+' + do_exit() : void
+' + default() : void
++ go() : void
 }
 ' interface ErrorChecking {
 ' check()
