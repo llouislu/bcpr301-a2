@@ -1,11 +1,16 @@
 @startuml
-interface MySourceReader {  
+interface MySourceReader {
++ <<constructor>> MySourceReader(Parser)
+' !! not sure the type of file
++ <<constructor>> MySourceReader(Parser, list)
 + go() : void
 }
 interface MyParser{
++ <<constructor>> MyParser(Drawer)
 + parse(list) : void
 }
 interface GraphicsDrawer{
++ <<constructor>> GraphicsDrawer()
 + select_pen(str) : void
 + pen_down() : void
 + pen_up() : void
@@ -19,6 +24,7 @@ interface GraphicsDrawer{
 + end() : void
 }
 interface TkinterDrawer{
++ <<constructor>> TkinterDrawer()
 + select_pen(int) : void
 + pen_down() : void
 + pen_up() : void
@@ -35,6 +41,7 @@ interface TkinterDrawer{
 + end() : void
 }
 interface TurtleDrawer{
++ <<constructor>> TurtleDrawer()
 + select_pen() : void
 + pen_down() : void
 + pen_up() : void
