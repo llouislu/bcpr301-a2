@@ -34,13 +34,18 @@ class MyParser(AbstractParser):
                 self.data = int(tempArr[1])
             except:
                 self.data = 0
-            if self.command in self.no_parameter_commands:
-                self.no_parameter_commands[self.command]()
-            elif self.command in self.one_parameter_commands:
-                self.one_parameter_commands[self.command](self.data)
-            elif self.command in self.draw_line_commands:
-                self.draw_line_commands[self.command](self.data)
+            self.call_drawer()
         try:
             self.drawer.end()
         except:
             pass
+        
+    def call_drawer(self):
+        if self.command in self.no_parameter_commands:
+            self.no_parameter_commands[self.command]()
+        elif self.command in self.one_parameter_commands:
+            self.one_parameter_commands[self.command](self.data)
+        elif self.command in self.draw_line_commands:
+            self.draw_line_commands[self.command](self.data)
+        else:
+            print('Command {} is invalid'.format(self.command))
