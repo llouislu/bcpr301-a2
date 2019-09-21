@@ -4,9 +4,9 @@ from ErrorChecking import ErrorChecking as EC
 # Not my code
 class Dest:  # returns the destination x,y coordinates given a current position, direction and distance
     def getDestination(self, currentPos, direction, distance):
-        EC().check(direction, "int", "direction, getDestination, Dest()")  # checking if arguments are of correct type
-        EC().check(distance, "int", "distance, getDestination, Dest()")
-        EC().check(currentPos, "list", "currentPos, getDestination, Dest()")
+        EC().check(direction, "int")  # checking if arguments are of correct type
+        EC().check(distance, "int")
+        EC().check(currentPos, "list")
         direction = float(direction)
         # Compute the change in position
         delta_y = distance * math.cos(math.radians(direction))

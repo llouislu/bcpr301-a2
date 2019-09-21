@@ -23,7 +23,7 @@ class TurtleDrawer(AbstractDrawer):
         self.turtle.penup()
 
     def go_along(self, along):
-        self.check(along, "int", "along, go_along, TurtleDrawer()")
+        self.check(along, "int")
         currentX = self.turtle.xcor()
         if self.turtle.isdown():
             self.turtle.penup()
@@ -33,7 +33,7 @@ class TurtleDrawer(AbstractDrawer):
             self.turtle.setx(currentX + int(along))
 
     def go_down(self, down):
-        self.check(down, "int", "down, go_down, TurtleDrawer()")
+        self.check(down, "int")
         currentY = self.turtle.ycor()
         if self.turtle.isdown():
             self.turtle.penup()
@@ -45,8 +45,8 @@ class TurtleDrawer(AbstractDrawer):
     def draw_line(self, direction, distance):
         direction = int(direction)
         distance = int(distance)
-        self.check(direction, "floatOrInt", "direction, draw_line, TurtleDrawer()")
-        self.check(distance, "floatOrInt", "distance, draw_line, TurtleDrawer()")
+        self.check(direction, "floatOrInt")
+        self.check(distance, "floatOrInt")
         if direction == 90 or direction == 270:
             direction -= 90
         else:
@@ -57,11 +57,11 @@ class TurtleDrawer(AbstractDrawer):
 
     def draw_circle(self, size):
         size = int(size)
-        self.check(size, "floatOrInt", "size, draw_circle, TurtleDrawer()")
+        self.check(size, "floatOrInt")
         self.turtle.circle(size)
 
     def draw_rectangle(self, size):
-        self.check(size, "int", "size, draw_rectangle, TurtleDrawer()")
+        self.check(size, "int")
         ourDirection = 0
         for i in range(4):
             self.draw_line(ourDirection, size)
@@ -69,7 +69,7 @@ class TurtleDrawer(AbstractDrawer):
 
     def draw_triangle(self, size):
         size = int(size)
-        self.check(size, "floatOrInt", "size, draw_triangle, TurtleDrawer()")
+        self.check(size, "floatOrInt")
         self.turtle.seth(0)
         for i in range(3):
             self.turtle.left(120)

@@ -28,11 +28,11 @@ class TkinterDrawer(AbstractDrawer):
         self.penDown = False
 
     def go_along(self, along):
-        self.check(along, "floatOrInt", "along, go_along, TkinterDrawer()")
+        self.check(along, "floatOrInt")
         self.x = along
 
     def go_down(self, down):
-        self.check(down, "floatOrInt", "down, go_down, TkinterDrawer()")
+        self.check(down, "floatOrInt")
         self.y = down
 
     def draw_line(self, direction, distance):
@@ -40,8 +40,8 @@ class TkinterDrawer(AbstractDrawer):
             direction = 180
         elif direction == 180:
             direction = 0
-        self.check(direction, "int", "direction, draw_line, TkinterDrawer()")
-        self.check(distance, "int", "distance, draw_line, TkinterDrawer()")
+        self.check(direction, "int")
+        self.check(distance, "int")
         myPosition = [self.x, self.y]
         distance = int(distance)
         newCoords = self.myDest.getDestination(myPosition, direction, distance)
@@ -53,7 +53,7 @@ class TkinterDrawer(AbstractDrawer):
         self.y = newCoords[1]
 
     def draw_circle(self, radius):
-        self.check(radius, "int", "radius, draw_circle, TkinterDrawer()")
+        self.check(radius, "int")
         x = self.x
         y = self.y
         x0 = x - radius
@@ -63,7 +63,7 @@ class TkinterDrawer(AbstractDrawer):
         self.myCanvas.create_oval(x0, y0, x1, y1)
 
     def draw_rectangle(self, size):
-        self.check(size, "int", "size, draw_rectangle, TkinterDrawer()")
+        self.check(size, "int")
         self.go_along(250)
         self.go_down(250)
         arrayDir = (0, 90, 180, 270)

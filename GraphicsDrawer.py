@@ -28,12 +28,12 @@ class GraphicsDrawer(AbstractDrawer):
         self.penDown = False
 
     def go_along(self, along):
-        self.check(along, "int", "along, go_along, GraphicsDrawer()")  # checking if arguments are of correct type
+        self.check(along, "int")  # checking if arguments are of correct type
         self.graphics.move(self.graphics, along, self.y)
         self.x = along
 
     def go_down(self, down):
-        self.check(down, "int", "down, go_down, GraphicsDrawer()")
+        self.check(down, "int")
         self.graphics.move(self.graphics, self.x, down)
         self.y = down
 
@@ -42,8 +42,8 @@ class GraphicsDrawer(AbstractDrawer):
             direction = 180
         elif direction == 180:
             direction = 0
-        self.check(direction, "int", "direction, draw_line, GraphicsDrawer()")
-        self.check(distance, "int", "distance, draw_line, GraphicsDrawer()")
+        self.check(direction, "int")
+        self.check(distance, "int")
         myPosition = [self.x, self.y]  # putting your current coordinates into an array for use with getDestination
         distance = int(distance)
         newCoords = self.myDest.getDestination(myPosition, direction, distance)  # getting the new destination
@@ -58,12 +58,12 @@ class GraphicsDrawer(AbstractDrawer):
         self.y = newCoords[1]
 
     def draw_circle(self, radius):
-        self.check(radius, "int", "radius, draw_circle, GraphicsDrawer()")
+        self.check(radius, "int")
         c = Circle(Point(self.x, self.y), radius)
         c.draw(self.graphics)
 
     def draw_rectangle(self, size):
-        self.check(size, "int", "size, draw_rectangle, GraphicsDrawer()")
+        self.check(size, "int")
         arrayDir = (0, 90, 180, 270)
         for i in range(4):
             self.draw_line(arrayDir[i - 1], size)
