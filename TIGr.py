@@ -32,19 +32,6 @@ class AbstractDrawer(ABC):
     def draw_line(self, direction, distance):
         pass
 
-
-class AbstractParser(ABC):
-    def __init__(self, drawer):
-        self.drawer = drawer
-        self.source = []
-        self.command = ''
-        self.data = 0
-
-    @abstractmethod
-    def parse(self, raw_source):
-        pass
-
-
 class AbstractSourceReader(ABC):
     """ responsible for providing source text for parsing and drawing
         Initiates the Draw use-case.
