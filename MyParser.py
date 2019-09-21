@@ -4,7 +4,11 @@ from TIGr import AbstractParser
 
 class MyParser(AbstractParser):
     def __init__(self, drawer):
-        super().__init__(drawer)
+        self.drawer = drawer
+        self.source = []
+        self.command = ''
+        self.data = 0
+        
         self.no_parameter_commands = {
             'D': self.drawer.pen_down,
             'U': self.drawer.pen_up
