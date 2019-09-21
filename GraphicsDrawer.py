@@ -44,17 +44,22 @@ class GraphicsDrawer(AbstractDrawer):
             direction = 0
         self.check(direction, "int")
         self.check(distance, "int")
-        myPosition = [self.x, self.y]  # putting your current coordinates into an array for use with getDestination
+        # putting your current coordinates into an array for use with getDestination
+        myPosition = [self.x, self.y]
         distance = int(distance)
-        newCoords = self.myDest.getDestination(myPosition, direction, distance)  # getting the new destination
+        newCoords = self.myDest.getDestination(
+            myPosition, direction, distance)  # getting the new destination
         point1 = Point(self.x, self.y)
-        point2 = Point(newCoords[0], newCoords[1])  # creating the two points for use with the graphics library
+        # creating the two points for use with the graphics library
+        point2 = Point(newCoords[0], newCoords[1])
 
         if self.penDown:
-            line = Line(point1, point2)  # the actual movement using the library
+            # the actual movement using the library
+            line = Line(point1, point2)
             line.setOutline(self.color)
             line.draw(self.graphics)
-        self.x = newCoords[0]  # updating the x,y position recorded in the class
+        # updating the x,y position recorded in the class
+        self.x = newCoords[0]
         self.y = newCoords[1]
 
     def draw_circle(self, radius):

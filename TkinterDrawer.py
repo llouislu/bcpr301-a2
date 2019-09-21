@@ -6,7 +6,8 @@ from Dest import *
 class TkinterDrawer(AbstractDrawer):
     def __init__(self):
         self.top = tkinter.Tk()
-        self.myCanvas = tkinter.Canvas(self.top, bg="grey", height=500, width=500)
+        self.myCanvas = tkinter.Canvas(
+            self.top, bg="grey", height=500, width=500)
         self.color = "white"
         self.penDown = False
         self.x = 250
@@ -46,7 +47,8 @@ class TkinterDrawer(AbstractDrawer):
         distance = int(distance)
         newCoords = self.myDest.getDestination(myPosition, direction, distance)
         if self.penDown:
-            self.myCanvas.create_line(self.x, self.y, newCoords[0], newCoords[1], fill=self.color)
+            self.myCanvas.create_line(
+                self.x, self.y, newCoords[0], newCoords[1], fill=self.color)
         self.go_along(newCoords[0])
         self.go_down(newCoords[1])
         self.x = newCoords[0]

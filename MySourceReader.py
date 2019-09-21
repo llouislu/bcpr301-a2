@@ -32,4 +32,4 @@ class MySourceReader(AbstractSourceReader):
 
         for name in map(str.rstrip, self.file):
             self.source.append(name)
-            #print(name)
+            # print(name)

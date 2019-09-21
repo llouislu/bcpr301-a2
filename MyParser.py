@@ -8,7 +8,7 @@ class MyParser(AbstractParser):
         self.source = []
         self.command = ''
         self.data = 0
-        
+
         self.no_parameter_commands = {
             'D': self.drawer.pen_down,
             'U': self.drawer.pen_up
@@ -43,7 +43,7 @@ class MyParser(AbstractParser):
             self.drawer.end()
         except:
             pass
-        
+
     def call_drawer(self):
         if self.command in self.no_parameter_commands:
             self.no_parameter_commands[self.command]()

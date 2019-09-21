@@ -2,6 +2,8 @@ import math
 from ErrorChecking import ErrorChecking as EC
 
 # Not my code
+
+
 class Dest:  # returns the destination x,y coordinates given a current position, direction and distance
     def getDestination(self, currentPos, direction, distance):
         EC().check(direction, "int")  # checking if arguments are of correct type

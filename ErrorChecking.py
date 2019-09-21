@@ -60,9 +60,9 @@ class ErrorChecking:
 
     def error_message(self):
         return 'The {var} argument of the {func} function{maybe_class_info} is not a {req_type}!' \
-        .format(
+            .format(
                 var=self.variable_name,
                 func=self.caller_function_name,
                 maybe_class_info=self.maybe_caller_class_info,
                 req_type=self.var_type
-               )
+            )

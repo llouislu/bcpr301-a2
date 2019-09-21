@@ -32,6 +32,7 @@ class AbstractDrawer(ABC):
     def draw_line(self, direction, distance):
         pass
 
+
 class AbstractSourceReader(ABC):
     """ responsible for providing source text for parsing and drawing
         Initiates the Draw use-case.

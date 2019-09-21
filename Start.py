@@ -9,7 +9,8 @@ if __name__ == '__main__':
     # data = sys.stdin.readlines()
     data = []
     parser = argparse.ArgumentParser('Interface')
-    parser.add_argument('-a', '--arguments', type=str, metavar='', help='Choose your graphics program')
+    parser.add_argument('-a', '--arguments', type=str,
+                        metavar='', help='Choose your graphics program')
     args = parser.parse_args()
     drawer = ""
     if args.arguments == "t":
