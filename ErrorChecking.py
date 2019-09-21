@@ -1,10 +1,31 @@
+import inspect
+
+
 class ErrorChecking:
     def __init__(self):
         self.message = []  # argument, function name, class name
 
     def check(self, variable, varType, message):
+        previous_frame = inspect.currentframe().f_back
+        caller_function_header = inspect.getframeinfo(
+            previous_frame).code_context[0].strip()
+        print(caller_function_header)
+        caller_function_args = caller_function_header[caller_function_header.find(
+            '(') + 1:-1].split(',')
+        self.variable_name = caller_function_args[0]
+
+        # frame is a named tuple of
+        # filename, line_number, function_name, lines, index
+        self.caller_function_name = inspect.getframeinfo(
+            previous_frame).function
+
+        self.maybe_caller_class_info = None
+        if previous_frame.f_locals.get('self'):
+            self.maybe_caller_class_info = ' inside the {} class'.format(
+                previous_frame.f_locals['self'].__class__.__name__)
+
         message.replace(" ", "")
-        self.message = message.split(",")
+        # self.message = message.split(",")
         errorMessage = {
             "int": lambda: self.notAInt(variable),
             "string": lambda: self.notAString(variable),
@@ -40,7 +61,5 @@ class ErrorChecking:
             print(self.error_message("float or int"))
 
     def error_message(self, reqType):
-        return "The %s argument of the %s function inside the %s class is not a %s!" %\
-               (self.message[0], self.message[1], self.message[2], reqType)
-
-
+        return 'The {var} argument of the {func} function{maybe_class_info} is not a {req_type}!'.format(
+               var=self.variable_name, func=self.caller_function_name, maybe_class_info=self.maybe_caller_class_info, req_type=reqType)

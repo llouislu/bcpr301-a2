@@ -3,10 +3,10 @@ from cmd import Cmd
 from TurtleDrawer import *
 
 
-class TurtlePrompt(TurtleDrawer, Cmd):
+class TurtlePrompt(Cmd):
     def __init__(self):
         super().__init__()
-        Cmd.__init__(self)
+        self.drawer = TurtleDrawer()
         self.alias = {
             'P': self.do_p,
             'D': self.do_d,
@@ -21,58 +21,58 @@ class TurtlePrompt(TurtleDrawer, Cmd):
 
     def do_p(self, arg):
         """Select Pen (1-5)"""
-        super().select_pen(arg)
+        self.drawer.select_pen(arg)
 
     def do_d(self, arg):
         """Pen Down"""
-        super().pen_down()
+        self.drawer.pen_down()
 
     def do_u(self):
         """Pen Up"""
-        super().pen_up()
+        self.drawer.pen_up()
 
     def do_x(self, arg):
         """Go along (x coordinate)"""
-        super().go_along(arg)
+        self.drawer.go_along(arg)
 
     def do_y(self, arg):
         """Go down(y coordinate)"""
-        super().go_down(arg)
+        self.drawer.go_down(arg)
 
     def do_n(self, arg):
         """Go North"""
         print(arg)
-        super().draw_line(0, arg)
+        self.drawer.draw_line(0, arg)
 
     def do_e(self, arg):
         """Go East"""
         print(arg)
-        super().draw_line(90, arg)
+        self.drawer.draw_line(90, arg)
 
     def do_w(self, arg):
         """Go West"""
         print(arg)
-        super().draw_line(270, arg)
+        self.drawer.draw_line(270, arg)
 
     def do_s(self, arg):
         """Go South"""
         print(arg)
-        super().draw_line(180, arg)
+        self.drawer.draw_line(180, arg)
 
     def do_c(self, arg):
         """Draw Cricle"""
         print(arg)
-        super().draw_circle(arg)
+        self.drawer.draw_circle(arg)
 
     def do_r(self, arg):
         """Draw Rectangle"""
         print(arg)
-        super().draw_rectangle(arg)
+        self.drawer.draw_rectangle(arg)
 
     def do_t(self, arg):
         """Draw Triangle"""
         print(arg)
-        super().draw_triangle(arg)
+        self.drawer.draw_triangle(arg)
 
     def do_exit(self, arg):
         """Exit Turtle"""
