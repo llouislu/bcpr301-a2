@@ -44,7 +44,8 @@ class GraphicsDrawer(AbstractDrawer):
             direction = 0
         self.check(direction, "int")
         self.check(distance, "int")
-        # putting your current coordinates into an array for use with getDestination
+        # putting your current coordinates into an array for use with
+        # getDestination
         myPosition = [self.x, self.y]
         distance = int(distance)
         newCoords = self.myDest.getDestination(

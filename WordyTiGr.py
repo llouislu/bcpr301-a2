@@ -38,7 +38,7 @@ class Parser(AbstractParser):
             self.command = line[0]
             try:
                 self.data = int(line[2])
-            except:
+            except Exception:
                 self.data = 0
             if self.command == 'P':
                 self.drawer.select_pen(self.data)

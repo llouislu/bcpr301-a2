@@ -36,12 +36,12 @@ class MyParser(AbstractParser):
             self.command = line[0]
             try:
                 self.data = int(tempArr[1])
-            except:
+            except Exception:
                 self.data = 0
             self.call_drawer()
         try:
             self.drawer.end()
-        except:
+        except Exception:
             pass
 
     def call_drawer(self):
